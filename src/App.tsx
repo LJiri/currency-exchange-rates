@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import { getCurrencies } from "./api/currencies";
+import { Currency } from "./helpers/parseExchangeRatesData";
 
 function App() {
   const { isLoading, data } = useQuery("repoData", getCurrencies);
@@ -8,7 +9,9 @@ function App() {
 
   return (
     <div className="App">
-      <div>{data}</div>
+      {data?.currencies.map((item: Currency, index: number) => (
+        <div key={index}>{item.currency}</div>
+      ))}
     </div>
   );
 }
