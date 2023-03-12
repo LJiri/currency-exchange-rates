@@ -1,15 +1,4 @@
-export interface Currency {
-  country: string;
-  currency: string;
-  amount: number;
-  code: string;
-  rate: number;
-}
-
-interface ExchangeRatesData {
-  currencies: Currency[];
-  date: Date;
-}
+import { ExchangeRatesData, Currency } from "../types";
 
 export const parseExchangeRatesData = (data: string): ExchangeRatesData => {
   const lines = getLines(data);
@@ -19,6 +8,9 @@ export const parseExchangeRatesData = (data: string): ExchangeRatesData => {
 
   // remove second line
   lines.shift();
+
+  // remove last empty line
+  lines.pop();
 
   return {
     currencies: getCurrencies(lines),
@@ -35,7 +27,7 @@ const getCurrencies = (lines: string[]): Currency[] => {
 };
 
 const getCurrencyObject = (data: string): any => {
-  const parsedData = data.split("|");
+  const parsedData = data.trim().split("|");
 
   return {
     country: parsedData[0],
@@ -47,7 +39,7 @@ const getCurrencyObject = (data: string): any => {
 };
 
 const getDate = (firstLine: string): Date => {
-  const words = firstLine.split(" ");
+  const words = firstLine.trim().split(" ");
   // remove ordinal number
   words.pop();
   const dateStirng = words.join(" ");
