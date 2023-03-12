@@ -22,14 +22,17 @@ const getLines = (data: string): string[] => data.split("\n");
 
 const getCurrencies = (lines: string[]): Currency[] => {
   const currencies: Currency[] = [];
-  lines.forEach((line) => currencies.push(getCurrencyObject(line)));
+  lines.forEach((line, index) =>
+    currencies.push(getCurrencyObject(line, String(index)))
+  );
   return currencies;
 };
 
-const getCurrencyObject = (data: string): any => {
+const getCurrencyObject = (data: string, id: string): any => {
   const parsedData = data.trim().split("|");
 
   return {
+    id: id,
     country: parsedData[0],
     currency: parsedData[1],
     amount: Number(parsedData[2]),

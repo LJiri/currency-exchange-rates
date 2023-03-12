@@ -1,4 +1,5 @@
 export interface Currency {
+  id: string;
   country: string;
   currency: string;
   amount: number;

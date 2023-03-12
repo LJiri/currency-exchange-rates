@@ -1,6 +1,10 @@
 import { ExchangeRatesData, Currency } from "../types";
 
-export const CurrencyTable = ({ data }: { data: ExchangeRatesData }) => (
+export const CurrencyTable = ({
+  data,
+}: {
+  data: ExchangeRatesData;
+}): JSX.Element => (
   <table>
     <thead>
       <tr>
