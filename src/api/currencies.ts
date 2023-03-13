@@ -1,5 +1,5 @@
 import axios from "axios";
-import { parseExchangeRatesData } from "../helpers/parseExchangeRatesData";
+import { parseExchangeRatesData } from "../helpers";
 
 export const getCurrencies = () =>
   axios

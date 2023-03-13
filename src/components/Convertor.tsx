@@ -1,26 +1,11 @@
 import { FormEvent, useState } from "react";
-import { Currency } from "../types";
+import { Currency, FormElements, ConvertedCurrency } from "../types";
 import { Convertor as ConvertorStyled } from "./styles/Convertor.styled";
 import { Button } from "./styles/Button.styled";
 import { ConvertorResult } from "./styles/ConvertorResult.styled";
 import { NumberInput } from "./NumberInput";
 import { CurrencySelect } from "./CurrencySelect";
-
-interface FormElements extends HTMLFormControlsCollection {
-  currency: HTMLInputElement;
-  amount: HTMLSelectElement;
-}
-
-interface ConvertedCurrency extends Currency {
-  amountForConversion: number;
-  convertedValue: number;
-}
-
-const convertCurrency = (amount: number, currency: Currency): number =>
-  Number(((currency.amount / currency.rate) * amount).toFixed(3));
-
-const getCurrencyById = (id: string, currencies: Currency[]) =>
-  currencies.find((currency: Currency) => currency.id === id);
+import { convertCurrency, getCurrencyById } from "../helpers";
 
 export const Convertor = ({
   currencies,
