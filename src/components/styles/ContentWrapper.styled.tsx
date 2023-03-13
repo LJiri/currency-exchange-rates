@@ -6,8 +6,13 @@ export const ContentWrapper = styled.div`
   flex-wrap: wrap;
   gap: 60px;
   max-width: 1200px;
+  margin: 0 auto;
 
   & > * {
     flex: 1;
+  }
+
+  @media (max-width: ${({ theme }) => theme.mediaMedium}) {
+    gap: 0;
   }
 `;

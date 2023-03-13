@@ -5,4 +5,8 @@ export const Section = styled.section`
   background: rgba(237, 232, 229, 1);
   display: flex;
   justify-content: center;
+
+  @media (max-width: ${({ theme }) => theme.mediaMedium}) {
+    padding: 10px;
+  }
 `;

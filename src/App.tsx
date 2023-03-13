@@ -1,4 +1,6 @@
 import { useQuery } from "react-query";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./components/styles/Theme";
 import { getCurrencies } from "./api/currencies";
 import { CurrencyTable } from "./components/CurrencyTable";
 import { Convertor } from "./components/Convertor";
@@ -13,19 +15,21 @@ function App() {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <AppWrapper>
-      <GlobalStyles />
-      {data && (
-        <ContentWrapper>
-          <Section>
-            <CurrencyTable data={data} />
-          </Section>
-          <Section>
-            <Convertor currencies={data.currencies} />
-          </Section>
-        </ContentWrapper>
-      )}
-    </AppWrapper>
+    <ThemeProvider theme={theme}>
+      <AppWrapper>
+        <GlobalStyles />
+        {data && (
+          <ContentWrapper>
+            <Section>
+              <CurrencyTable data={data} />
+            </Section>
+            <Section>
+              <Convertor currencies={data.currencies} />
+            </Section>
+          </ContentWrapper>
+        )}
+      </AppWrapper>
+    </ThemeProvider>
   );
 }
 
