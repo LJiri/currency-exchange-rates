@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-export const CurrencyTable = styled.table`
-  border: 1px solid var(--color-primary);
-  border-spacing: 0;
-  border-radius: var(--border-radius);
-  font-size: 16px;
+export const CurrencyTable = styled.div`
+  table {
+    border: 1px solid var(--color-primary);
+    border-spacing: 0;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+  }
 
   tr {
     border-radius: var(--border-radius);
@@ -49,6 +51,13 @@ export const CurrencyTable = styled.table`
 
   td {
     padding: 4px 6px;
+  }
+
+  div {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-right: 5px;
+    text-align: right;
   }
 
   @media (max-width: ${({ theme }) => theme.mediaSmall}) {
