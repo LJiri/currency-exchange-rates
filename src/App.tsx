@@ -10,9 +10,10 @@ import { Section } from "./components/styles/Section.styled";
 import { GlobalStyles } from "./components/styles/Global";
 
 function App() {
-  const { isLoading, data } = useQuery("repoData", getCurrencies);
+  const { isLoading, isError, data } = useQuery("repoData", getCurrencies);
 
   if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error...</div>;
 
   return (
     <ThemeProvider theme={theme}>
