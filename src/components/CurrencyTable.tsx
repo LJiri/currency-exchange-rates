@@ -1,11 +1,12 @@
 import { ExchangeRatesData, Currency } from "../types";
+import { CurrencyTable as CurrencyTableStyled } from "./styles/CurrencyTable.styled";
 
 export const CurrencyTable = ({
   data,
 }: {
   data: ExchangeRatesData;
 }): JSX.Element => (
-  <table>
+  <CurrencyTableStyled>
     <thead>
       <tr>
         <th>Country</th>
@@ -26,5 +27,5 @@ export const CurrencyTable = ({
         </tr>
       ))}
     </tbody>
-  </table>
+  </CurrencyTableStyled>
 );

@@ -12,7 +12,7 @@ interface ConvertedCurrency extends Currency {
 }
 
 const convertCurrency = (amount: number, currency: Currency): number =>
-  (currency.rate / currency.amount) * amount;
+  (currency.amount / currency.rate) * amount;
 
 const getCurrencyById = (id: string, currencies: Currency[]) =>
   currencies.find((currency: Currency) => currency.id === id);
