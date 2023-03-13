@@ -1,5 +1,10 @@
 import { FormEvent, useState } from "react";
 import { Currency } from "../types";
+import { Convertor as ConvertorStyled } from "./styles/Convertor.styled";
+import { Button } from "./styles/Button.styled";
+import { ConvertorResult } from "./styles/ConvertorResult.styled";
+import { NumberInput } from "./NumberInput";
+import { CurrencySelect } from "./CurrencySelect";
 
 interface FormElements extends HTMLFormControlsCollection {
   currency: HTMLInputElement;
@@ -12,7 +17,7 @@ interface ConvertedCurrency extends Currency {
 }
 
 const convertCurrency = (amount: number, currency: Currency): number =>
-  (currency.amount / currency.rate) * amount;
+  Number(((currency.amount / currency.rate) * amount).toFixed(3));
 
 const getCurrencyById = (id: string, currencies: Currency[]) =>
   currencies.find((currency: Currency) => currency.id === id);
@@ -54,24 +59,25 @@ export const Convertor = ({
   };
 
   return (
-    <div>
+    <ConvertorStyled>
       <form onSubmit={handleSubmit} noValidate>
-        <select name="currency">
-          {currencies.map((item: Currency) => (
-            <option key={item.id} value={item.id}>
-              {`${item.country} - ${item.currency}`}
-            </option>
-          ))}
-        </select>
-        <input type="number" name="amount" />
-        <div>{inputError}</div>
-        <button type="submit">Convert currency</button>
+        <CurrencySelect currencies={currencies} />
+        <NumberInput
+          name="amount"
+          inputError={inputError}
+          placeholder="amount"
+        />
+        <Button type="submit">Convert currency</Button>
       </form>
       {convertedCurrency && (
-        <div>
-          {`${convertedCurrency.amountForConversion} CZK is ${convertedCurrency.convertedValue} ${convertedCurrency.code}`}
-        </div>
+        <ConvertorResult>
+          <div>{`${convertedCurrency.amountForConversion} CZK`}</div>
+          <div>=</div>
+          <div>
+            {`${convertedCurrency.convertedValue} ${convertedCurrency.code}`}
+          </div>
+        </ConvertorResult>
       )}
-    </div>
+    </ConvertorStyled>
   );
 };
