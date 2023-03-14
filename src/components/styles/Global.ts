@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: arial,sans-serif;
 
     &:before {
         box-sizing: border-box;
@@ -26,9 +27,6 @@ export const GlobalStyles = createGlobalStyle`
 
 
 body {
-
-        font-family: arial,sans-serif;
         background: #fbfbf9;
-        margin: 0;
     }
 `;
