@@ -61,6 +61,8 @@ export const CurrencyTable = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.mediaSmall}) {
-    font-size: 14px;
+    table {
+      font-size: 14px;
+    }
   }
 `;
