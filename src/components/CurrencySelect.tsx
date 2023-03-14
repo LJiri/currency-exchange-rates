@@ -1,4 +1,4 @@
-import { Select } from "./styles/Select.styled";
+import { Select } from "./styles";
 import { Currency } from "../types";
 
 interface Props {

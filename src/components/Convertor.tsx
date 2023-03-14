@@ -1,10 +1,11 @@
 import { FormEvent, useState } from "react";
 import { Currency, FormElements, ConvertedCurrency } from "../types";
-import { Convertor as ConvertorStyled } from "./styles/Convertor.styled";
-import { Button } from "./styles/Button.styled";
-import { ConvertorResult } from "./styles/ConvertorResult.styled";
-import { NumberInput } from "./NumberInput";
-import { CurrencySelect } from "./CurrencySelect";
+import {
+  Convertor as ConvertorStyled,
+  Button,
+  ConvertorResult,
+} from "./styles";
+import { CurrencySelect, NumberInput } from ".";
 import { convertCurrency, getCurrencyById } from "../helpers";
 
 export const Convertor = ({

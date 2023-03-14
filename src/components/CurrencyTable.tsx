@@ -1,5 +1,5 @@
 import { ExchangeRatesData, Currency } from "../types";
-import { CurrencyTable as CurrencyTableStyled } from "./styles/CurrencyTable.styled";
+import { CurrencyTable as CurrencyTableStyled } from "./styles";
 
 export const CurrencyTable = ({
   data,

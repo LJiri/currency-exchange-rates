@@ -1,4 +1,4 @@
-import { NumberInput as NumberInputStyled } from "./styles/NumberInput.styled";
+import { NumberInput as NumberInputStyled } from "./styles";
 
 interface Props {
   name: string;

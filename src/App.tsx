@@ -1,13 +1,14 @@
 import { useQuery } from "react-query";
-import { ThemeProvider } from "styled-components";
-import { theme } from "./components/styles/Theme";
 import { getCurrencies } from "./api/currencies";
-import { CurrencyTable } from "./components/CurrencyTable";
-import { Convertor } from "./components/Convertor";
-import { ContentWrapper } from "./components/styles/ContentWrapper.styled";
-import { AppWrapper } from "./components/styles/AppWrapper.styled";
-import { Section } from "./components/styles/Section.styled";
-import { GlobalStyles } from "./components/styles/Global";
+import { ThemeProvider } from "styled-components";
+import { Convertor, CurrencyTable } from "./components";
+import {
+  theme,
+  GlobalStyles,
+  AppWrapper,
+  ContentWrapper,
+  Section,
+} from "./components/styles";
 
 function App() {
   const { isLoading, isError, data } = useQuery("repoData", getCurrencies);
@@ -17,8 +18,8 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <AppWrapper>
-        <GlobalStyles />
         {data && (
           <ContentWrapper>
             <Section>
